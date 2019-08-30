@@ -32,3 +32,5 @@ cd <folder_name>/
 
 Rscript.exe <name_of_r_program>.r
 ```
+
+Or open and run the <name_of_r_program>.r file using RStudio
