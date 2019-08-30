@@ -13,7 +13,7 @@ Machine Learning in R
 	* Splitting the dataset into the Training set and Test set
 	* Feature Scaling
 
-	a.  [data_preprocessing_template.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/1_data_preprocessing/data_preprocessing_template.r)
+	a.  [data_preprocessing.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/1_data_preprocessing/data_preprocessing.r)
 
 ## How to run the R program
 
