@@ -3,7 +3,8 @@ Machine Learning in R
 
 ## Data Preprocessing
 1. [Data Preprocessing](#data-preprocessing)
-2. [How to run the R program](#how-to-run-the-r-program)
+2. [Regression](#regression)
+3. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
 
@@ -13,7 +14,21 @@ Machine Learning in R
 	* Splitting the dataset into the Training set and Test set
 	* Feature Scaling
 
-	a.  [data_preprocessing.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/1_data_preprocessing/data_preprocessing.r)
+	a.  [data_preprocessing.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/1_data_preprocessing/data_preprocessing.r)
+
+## Regression
+
+1. Simple Linear Regression
+	* Importing the dataset (Salary_Data.csv)
+	* Splitting the dataset into the Training set and Test set
+	* Fitting Simple Linear Regression to the Training set
+	* Predicting the Test set results
+	* Visualising the Training set results (matplotlib: scatter plot)
+	![Visualising the Training set resultsr](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/Visualising-the-Test-set-results.png)
+	* Visualising the Test set results (matplotlib: scatter plot)
+	![Visualising the Training set resultsr](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/Visualising-the-Test-set-results.png)
+
+	a.  [simple_linear_regression.py](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/simple_linear_regression.r)
 
 ## How to run the R program
 
