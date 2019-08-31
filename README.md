@@ -23,12 +23,12 @@ Machine Learning in R
 	* Splitting the dataset into the Training set and Test set
 	* Fitting Simple Linear Regression to the Training set
 	* Predicting the Test set results
-	* Visualising the Training set results (matplotlib: scatter plot)
+	* Visualising the Training set results (ggplot2: scatter plot)
 	![Visualising the Training set resultsr](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/Visualising-the-Test-set-results.png)
-	* Visualising the Test set results (matplotlib: scatter plot)
+	* Visualising the Test set results (ggplot2: scatter plot)
 	![Visualising the Training set resultsr](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/Visualising-the-Test-set-results.png)
 
-	a.  [simple_linear_regression.py](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/simple_linear_regression.r)
+	a.  [simple_linear_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/simple_linear_regression.r)
 
 ## How to run the R program
 
