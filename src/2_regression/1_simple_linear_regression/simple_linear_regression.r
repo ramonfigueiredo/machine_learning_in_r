@@ -12,8 +12,8 @@ training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
 
 # Feature Scaling
-# training_set = scale(training_set)
-# test_set = scale(test_set)
+# Linear regression (lm) is going to take care of feature scaling for us.
+# Therefore we don't need to do feature scaling.
 
 # Fitting Simple Linear Regression to the Training set
 regressor = lm(formula = Salary ~ YearsExperience,
