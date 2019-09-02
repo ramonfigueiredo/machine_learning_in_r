@@ -37,11 +37,9 @@ a.  [simple_linear_regression.r](https://github.com/ramonfigueiredopessoa/machin
 
 * Importing the dataset (50_Startups.csv)
 * Encoding categorical data
-* Avoiding the Dummy Variable Trap
 * Splitting the dataset into the Training set and Test set
 * Fitting Multiple Linear Regression to the Training set
 * Predicting the Test set results
-* Building the optimal model using Backward Elimination
 
 a.  [multiple_linear_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/2_multiple_linear_regression/multiple_linear_regression.r)
 
