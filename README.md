@@ -4,6 +4,8 @@ Machine Learning in R
 ## Data Preprocessing
 1. [Data Preprocessing](#data-preprocessing)
 2. [Regression](#regression)
+	1. [Simple Linear Regression](#simple-linear-regression)
+	2. [Multiple Linear Regression](#multiple-linear-regression)
 3. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
@@ -18,17 +20,30 @@ Machine Learning in R
 
 ## Regression
 
-1. Simple Linear Regression
-	* Importing the dataset (Salary_Data.csv)
-	* Splitting the dataset into the Training set and Test set
-	* Fitting Simple Linear Regression to the Training set
-	* Predicting the Test set results
-	* Visualising the Training set results (ggplot2: scatter plot)
-	![Visualising the Training set resultsr](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/Visualising-the-Test-set-results.png)
-	* Visualising the Test set results (ggplot2: scatter plot)
-	![Visualising the Training set resultsr](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/Visualising-the-Test-set-results.png)
+### Simple Linear Regression
 
-	a.  [simple_linear_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/simple_linear_regression.r)
+* Importing the dataset (Salary_Data.csv)
+* Splitting the dataset into the Training set and Test set
+* Fitting Simple Linear Regression to the Training set
+* Predicting the Test set results
+* Visualising the Training set results (ggplot2: scatter plot)
+![Visualising the Training set resultsr](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/Visualising-the-Test-set-results.png)
+* Visualising the Test set results (ggplot2: scatter plot)
+![Visualising the Training set resultsr](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/Visualising-the-Test-set-results.png)
+
+a.  [simple_linear_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/1_simple_linear_regression/simple_linear_regression.r)
+
+### Multiple Linear Regression
+
+* Importing the dataset (50_Startups.csv)
+* Encoding categorical data
+* Avoiding the Dummy Variable Trap
+* Splitting the dataset into the Training set and Test set
+* Fitting Multiple Linear Regression to the Training set
+* Predicting the Test set results
+* Building the optimal model using Backward Elimination
+
+a.  [multiple_linear_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/2_multiple_linear_regression/multiple_linear_regression.r)
 
 ## How to run the R program
 
