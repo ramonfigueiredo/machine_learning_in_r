@@ -49,7 +49,7 @@ summary(regressor)
 # State2           1.213e+02  3.751e+03   0.032    0.974    
 # State3           2.376e+02  4.127e+03   0.058    0.954    
 # ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#   Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 # 
 # Residual standard error: 9908 on 34 degrees of freedom
 # Multiple R-squared:  0.9499,	Adjusted R-squared:  0.9425 
