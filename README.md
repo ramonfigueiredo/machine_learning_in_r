@@ -43,6 +43,10 @@ a.  [simple_linear_regression.r](https://github.com/ramonfigueiredopessoa/machin
 
 a.  [multiple_linear_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/2_multiple_linear_regression/multiple_linear_regression.r)
 
+b. Multiple Linear Regression - Backward Elimination [backward_elimination.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/2_multiple_linear_regression/backward_elimination.r)
+
+c. Multiple Linear Regression - Automatic Backward Elimination [automatic_backward_elimination.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/2_multiple_linear_regression/automatic_backward_elimination.r)
+
 ## How to run the R program
 
 1. Install [R](https://www.r-project.org/) and [RStudio](https://www.rstudio.com/)
