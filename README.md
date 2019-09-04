@@ -7,6 +7,7 @@ Machine Learning in R
 	1. [Simple Linear Regression](#simple-linear-regression)
 	2. [Multiple Linear Regression](#multiple-linear-regression)
 	3. [Polynomial Regression](#polynomial-regression)
+	4. [Support Vector Regression](#support-vector-regression)
 3. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
@@ -75,6 +76,20 @@ a.  [polynomial_regression.r](https://github.com/ramonfigueiredopessoa/machine_l
 ![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/3_polynomial_regression/Truth_or_Bluff-Polynomial_Regression-degree_3.png)
 * Visualising the Polynomial Regression results (degree = 4)
 ![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/3_polynomial_regression/Truth_or_Bluff-Polynomial_Regression-degree_4.png)
+
+Go to [Contents](#contents)
+
+### Support Vector Regression
+
+a.  [svr.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/4_support_vector_regression/svr.r)
+
+* Importing the dataset ([Position_Salaries.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/4_support_vector_regression/Position_Salaries.csv))
+* Feature Scaling
+* Fitting Support Vector Regression (SVR) to the dataset
+* Predicting a new result with Support Vector Regression (SVR)
+* Visualising the SVR results (for higher resolution and smoother curve)
+
+![Visualising the SVR results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/4_support_vector_regression/Visualising-the-SVR-results.png)
 
 Go to [Contents](#contents)
 
