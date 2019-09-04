@@ -6,6 +6,7 @@ Machine Learning in R
 2. [Regression](#regression)
 	1. [Simple Linear Regression](#simple-linear-regression)
 	2. [Multiple Linear Regression](#multiple-linear-regression)
+	3. [Polynomial Regression](#polynomial-regression)
 3. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
@@ -51,6 +52,25 @@ c. Multiple Linear Regression - Automatic Backward Elimination: [automatic_backw
 * Splitting the dataset into the Training set and Test set
 * Fitting Multiple Linear Regression to the Training set
 * Predicting the Test set results
+
+Go to [Contents](#contents)
+
+### Polynomial Regression
+
+a.  [polynomial_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/3_polynomial_regression/polynomial_regression.r)
+
+* Importing the dataset ([Position_Salaries.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/3_polynomial_regression/Position_Salaries.csv))
+* Fitting Linear Regression to the Training set
+* Predicting a new result with Linear Regression
+* Visualising the Linear Regression results
+* Fitting Polynomial Regression to the Training set
+* Predicting a new result with Polynomial Regression
+* Visualising the Polynomial Regression results (for higher resolution and smoother curve)
+
+* Visualising the Linear Regression results
+![Visualising the Linear Regression results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/3_polynomial_regression/Truth_or_Bluff-Linear_Regression.png)
+* Visualising the Polynomial Regression results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/3_polynomial_regression/Truth_or_Bluff-Polynomial_Regression.png)
 
 Go to [Contents](#contents)
 
