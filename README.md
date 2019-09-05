@@ -8,6 +8,7 @@ Machine Learning in R
 	2. [Multiple Linear Regression](#multiple-linear-regression)
 	3. [Polynomial Regression](#polynomial-regression)
 	4. [Support Vector Regression](#support-vector-regression)
+	5. [Decision Tree Regressor](#decision-tree-regressor)
 3. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
@@ -90,6 +91,22 @@ a.  [svr.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/
 * Visualising the SVR results (for higher resolution and smoother curve)
 
 ![Visualising the SVR results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/4_support_vector_regression/Visualising-the-SVR-results.png)
+
+Go to [Contents](#contents)
+
+### Decision Tree Regressor
+
+a.  [decision_tree_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/5_decision_tree_regression/decision_tree_regression.r)
+
+* Importing the dataset ([Position_Salaries.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/5_decision_tree_regression/Position_Salaries.csv))
+* Fitting Decision Tree Regression to the dataset
+* Predicting a new result with Decision Tree Regression
+* Visualising the Decision Tree Regression results (higher resolution)
+* Plotting the tree
+
+![Visualising the Decision Tree Regression results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/5_decision_tree_regression/Visualising-the-Decision-Tree-Regression-results.png)
+
+![Plotting the tree](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/5_decision_tree_regression/Plotting-the-tree.png)
 
 Go to [Contents](#contents)
 
