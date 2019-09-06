@@ -188,7 +188,8 @@ a.  [svm.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/
 * Encoding the target feature as factor
 * Splitting the dataset into the Training set and Test set
 * Feature Scaling
-* Fitting K-NN to the Training set and Predicting the Test set results
+* Fitting SVM to the Training set
+* Predicting the Test set results
 * Making the Confusion Matrix
 * Visualising the Training set results
 * Visualising the Test set results
