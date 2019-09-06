@@ -244,6 +244,23 @@ Go to [Contents](#contents)
 
 a.  [decision_tree_classification.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/6_decision_tree_classification/decision_tree_classification.r)
 
+* Importing the dataset ([Social_Network_Ads.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/6_decision_tree_classification/Social_Network_Ads.csv))
+* Encoding the target feature as factor
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Fitting Decision Tree Classification to the Training set
+* Predicting the Test set results
+* Making the Confusion Matrix
+* Visualising the Training set results
+* Visualising the Test set results
+* Plotting the tree
+
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/6_decision_tree_classification/Visualising-the-Training-set-results.png)
+
+![Visualising-the-Test-set-results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/6_decision_tree_classification/Visualising-the-Test-set-results.png)
+
+![Plotting-the-tree](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/6_decision_tree_classification/Plotting-the-tree.png)
+
 Go to [Contents](#contents)
 
 ### Random Forest Classification
