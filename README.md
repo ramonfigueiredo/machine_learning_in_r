@@ -224,6 +224,20 @@ Go to [Contents](#contents)
 
 a.  [naive_bayes.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/5_naive_bayes/naive_bayes.r)
 
+* Importing the dataset ([Social_Network_Ads.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/5_naive_bayes/Social_Network_Ads.csv))
+* Encoding the target feature as factor
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Fitting Naive Bayes to the Training set
+* Predicting the Test set results
+* Making the Confusion Matrix
+* Visualising the Training set results
+* Visualising the Test set results
+
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/5_naive_bayes/Visualising-the-Training-set-results.png)
+
+![Visualising-the-Test-set-results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/5_naive_bayes/Visualising-the-Test-set-results.png)
+
 Go to [Contents](#contents)
 
 ### Decision Tree Classification
