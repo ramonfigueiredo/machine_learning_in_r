@@ -10,7 +10,15 @@ Machine Learning in R
 	4. [Support Vector Regression](#support-vector-regression)
 	5. [Decision Tree Regressor](#decision-tree-regressor)
 	6. [Random Forest Regression](#random-forest-regression)
-3. [How to run the R program](#how-to-run-the-r-program)
+3. [Classification](#classification)
+	1. [Logistic Regression](#logistic-regression)
+	2. [K-Nearest Neighbors](#k-nearest-neighbors)
+	3. [Support Vector Machine](#support-vector-machine)
+	4. [Kernel SVM](#kernel-svm)
+	5. [Naive Bayes](#naive-bayes)
+	6. [Decision Tree Classification](#decision-tree-classification)
+	7. [Random Forest Classification](#random-forest-classification)
+4. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
 
@@ -129,6 +137,38 @@ a.  [random_forest_regression.r](https://github.com/ramonfigueiredopessoa/machin
 * Visualising the Random Forest Regression results (higher resolution)
 
 ![Visualising the Random Forest Regression results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/2_regression/6_random_forest_regression/Visualising-the-Random-Forest-Regression-results.png)
+
+Go to [Contents](#contents)
+
+## Classification
+
+Go to [Contents](#contents)
+
+### Logistic Regression
+
+Go to [Contents](#contents)
+
+### K-Nearest Neighbors
+
+Go to [Contents](#contents)
+
+### Support Vector Machine
+
+Go to [Contents](#contents)
+
+### Kernel SVM
+
+Go to [Contents](#contents)
+
+### Naive Bayes
+
+Go to [Contents](#contents)
+
+### Decision Tree Classification
+
+Go to [Contents](#contents)
+
+### Random Forest Classification
 
 Go to [Contents](#contents)
 
