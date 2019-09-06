@@ -208,7 +208,7 @@ a.  [kernel_svm.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_
 * Encoding the target feature as factor
 * Splitting the dataset into the Training set and Test set
 * Feature Scaling
-* Fitting SVM to the Training set
+* Fitting Kernel SVM to the Training set
 * Predicting the Test set results
 * Making the Confusion Matrix
 * Visualising the Training set results
