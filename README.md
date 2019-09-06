@@ -165,6 +165,19 @@ Go to [Contents](#contents)
 
 a.  [knn.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/2_k_nearest_neighbors/knn.r)
 
+* Importing the dataset ([Social_Network_Ads.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/2_k_nearest_neighbors/Social_Network_Ads.csv))
+* Encoding the target feature as factor
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Fitting K-NN to the Training set and Predicting the Test set results
+* Making the Confusion Matrix
+* Visualising the Training set results
+* Visualising the Test set results
+
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/1_logistic_regression/Visualising-the-Training-set-results.png)
+
+![Visualising-the-Test-set-results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/1_logistic_regression/Visualising-the-Test-set-results.png)
+
 Go to [Contents](#contents)
 
 ### Support Vector Machine
