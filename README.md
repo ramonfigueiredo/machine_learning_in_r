@@ -142,33 +142,45 @@ Go to [Contents](#contents)
 
 ## Classification
 
-Go to [Contents](#contents)
-
 ### Logistic Regression
+
+a.  [logistic_regression.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/1_logistic_regression/logistic_regression.r)
 
 Go to [Contents](#contents)
 
 ### K-Nearest Neighbors
 
+a.  [knn.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/2_k_nearest_neighbors/knn.r)
+
 Go to [Contents](#contents)
 
 ### Support Vector Machine
+
+a.  [svm.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/3_support_vector_machine/svm.r)
 
 Go to [Contents](#contents)
 
 ### Kernel SVM
 
+a.  [kernel_svm.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/4_kernel_svm/kernel_svm.r)
+
 Go to [Contents](#contents)
 
 ### Naive Bayes
+
+a.  [naive_bayes.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/5_naive_bayes/naive_bayes.r)
 
 Go to [Contents](#contents)
 
 ### Decision Tree Classification
 
+a.  [decision_tree_classification.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/6_decision_tree_classification/decision_tree_classification.r)
+
 Go to [Contents](#contents)
 
 ### Random Forest Classification
+
+a.  [random_forest_classification.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/7_random_forest_classification/random_forest_classification.r)
 
 Go to [Contents](#contents)
 
