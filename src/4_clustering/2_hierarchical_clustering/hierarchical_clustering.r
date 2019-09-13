@@ -19,7 +19,7 @@ plot(dendrogram,
 ## distance
 ### euclidean, maximum, manhattan, canberra, binary, minkowski
 
-hc = hclust(d = dist(dataset, method = 'canberra'), method = 'average')
+hc = hclust(d = dist(dataset, method = 'euclidean'), method = 'ward.D')
 y_hc = cutree(hc, 5)
 cat(" Fitting Hierarchical Clustering to the dataset:", y_hc)
 
