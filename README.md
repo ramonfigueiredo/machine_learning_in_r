@@ -18,7 +18,9 @@ Machine Learning in R
 	5. [Naive Bayes](#naive-bayes)
 	6. [Decision Tree Classification](#decision-tree-classification)
 	7. [Random Forest Classification](#random-forest-classification)
-4. [How to run the R program](#how-to-run-the-r-program)
+4. [Clustering](#clustering)
+	1. [K-Means Clustering](#k-means-clustering)
+5. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
 
@@ -283,6 +285,33 @@ a.  [random_forest_classification.r](https://github.com/ramonfigueiredopessoa/ma
 ![Visualising-the-Test-set-results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/7_random_forest_classification/Visualising-the-Test-set-results.png)
 
 ![Choosing the number of trees](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/3_classification/7_random_forest_classification/Choosing-the-number-of-trees.png)
+
+Go to [Contents](#contents)
+
+## Clustering
+
+### K-Means Clustering
+* Importing the dataset ([Mall_Customers.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/4_clustering/1_k_means_clustering/Mall_Customers.csv))
+* Using the [Elbow method](https://en.wikipedia.org/wiki/Elbow_method_(clustering)) to find the optimal number of clusters
+	* The Elbow method is a heuristic method of interpretation and validation of consistency within cluster analysis designed to help finding the appropriate number of clusters in a dataset
+* Plotting the Elbow method
+	* The Elbow method uses the [Within-Cluster Sum of Squares (WCSS)](https://en.wikipedia.org/wiki/K-means_clustering) metric = Sum of squared distances of samples to their closest cluster center.
+	* According to the Elbow method the best number of cluster in the mall customers dataset ([Mall_Customers.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/4_clustering/1_k_means_clustering/Mall_Customers.csv)) is 5
+* Fitting K-Means to the dataset. The fit method returns for each observation which cluster it belongs to.
+
+a.  [kmeans.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/4_clustering/1_k_means_clustering/kmeans.r)
+
+![The Elbow Method](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/4_clustering/1_k_means_clustering/The-Elbow-Method.png)
+
+* Visualising the clusters
+	* Cluster 1 has high income and low spending score. A better name for this cluster of clients as "Careful clients"
+	* Cluster 2 has average income and average spending score. A better name for this cluster of clients as "Standard clients"
+	* Cluster 3 has high income and high spending score. A better name for this cluster of clients as "Target clients"
+		* Therefore, cluster 3 is the cluster of clients that would be the main potential target of the mall marketing campaigns and it would be very insighful for them all to understand what kind of products are bought by the clients in this cluster 
+	* Cluster 4 has low income and high spending score. A better name for this cluster of clients as "Careless clients" 
+	* Cluster 5 has low income and low spending score. A better name for this cluster of clients as "Sensible clients"
+	
+![Clusters of customers](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/4_clustering/1_k_means_clustering/Clusters-of-customers.png)
 
 Go to [Contents](#contents)
 
