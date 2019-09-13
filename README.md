@@ -337,13 +337,13 @@ a.  [hierarchical_clustering.r](https://github.com/ramonfigueiredopessoa/machine
 ![Dendrogram with 5 clusters](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/4_clustering/2_hierarchical_clustering/Dendrogram-Largest-distance-5_clusters.png)
 
 * Visualising the clusters
-	* Cluster 1 has high income and low spending score. A better name for this cluster of clients as "Careful clients"
-	* Cluster 2 has average income and average spending score. A better name for this cluster of clients as "Standard clients"
-	* Cluster 3 has high income and high spending score. A better name for this cluster of clients as "Target clients"
-		* Therefore, cluster 3 is the cluster of clients that would be the main potential target of the mall marketing campaigns and it would be very insighful for them all to understand what kind of products are bought by the clients in this cluster 
-	* Cluster 4 has low income and high spending score. A better name for this cluster of clients as "Careless clients" 
-	* Cluster 5 has low income and low spending score. A better name for this cluster of clients as "Sensible clients"
-	
+	* Cluster 1 has low income and high spending score. A better name for this cluster of clients as "Careless clients" 
+	* Cluster 2 has low income and low spending score. A better name for this cluster of clients as "Sensible clients"
+	* Cluster 3 has average income and average spending score. A better name for this cluster of clients as "Standard clients"
+	* Cluster 4 has high income and low spending score. A better name for this cluster of clients as "Careful clients"
+	* Cluster 5 has high income and high spending score. A better name for this cluster of clients as "Target clients"
+		* Therefore, cluster 5 is the cluster of clients that would be the main potential target of the mall marketing campaigns and it would be very insighful for them all to understand what kind of products are bought by the clients in this cluster 
+
 ![Clusters of customers](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/4_clustering/2_hierarchical_clustering/Clusters-of-customers.png)
 
 * Clusters visialization with different distance metrics and different linkage criterion
