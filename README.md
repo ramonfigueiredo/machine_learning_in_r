@@ -446,16 +446,16 @@ creating S4 object  ... done [0.00s].
 ```
 
 * Analyzes
-	* [01] people how buy {light cream} ================================> also by {chicken} ========> in 29.06% (0.2905983) of the cases
-	* [02] people how buy {pasta} ======================================> also by {escalope} =======> in 37.29% (0.3728814) of the cases
-	* [03] people how buy {pasta} ======================================> also by {shrimp} =========> in 32.20% (0.3220339) of the cases
-	* [04] people how buy {eggs,ground beef} ===========================> also by {herb & pepper} ==> in 20.67% (0.2066667) of the cases
-	* [05] people how buy {whole wheat pasta} ==========================> also by {olive oil} ======> in 27.15% (0.2714932) of the cases
-	* [06] people how buy {herb & pepper,spaghetti} ====================> also by {ground beef} ====> in 39.34% (0.3934426) of the cases
-	* [07] people how buy {herb & pepper,mineral water} ================> also by {ground beef} ====> in 39.06% (0.3906250) of the cases
-	* [08] people how buy {tomato sauce} ===============================> also by {ground beef} ====> in 37.74% (0.3773585) of the cases
-	* [09] people how buy {mushroom cream sauce} =======================> also by {escalope} =======> in 30.07% (0.3006993) of the cases
-	* [10] people how buy {frozen vegetables,mineral water,spaghetti} ==> also by {ground beef} ====> in 36.67% (0.3666667) of the cases
+	* [01] people how buy {light cream} also by {chicken} in 29.06% (0.2905983) of the cases
+	* [02] people how buy {pasta} also by {escalope} in 37.29% (0.3728814) of the cases
+	* [03] people how buy {pasta} also by {shrimp} in 32.20% (0.3220339) of the cases
+	* [04] people how buy {eggs,ground beef} also by {herb & pepper} in 20.67% (0.2066667) of the cases
+	* [05] people how buy {whole wheat pasta} also by {olive oil} in 27.15% (0.2714932) of the cases
+	* [06] people how buy {herb & pepper,spaghetti} also by {ground beef} in 39.34% (0.3934426) of the cases
+	* [07] people how buy {herb & pepper,mineral water} also by {ground beef} in 39.06% (0.3906250) of the cases
+	* [08] people how buy {tomato sauce} also by {ground beef} in 37.74% (0.3773585) of the cases
+	* [09] people how buy {mushroom cream sauce} also by {escalope} in 30.07% (0.3006993) of the cases
+	* [10] people how buy {frozen vegetables,mineral water,spaghetti} also by {ground beef} in 36.67% (0.3666667) of the cases
 
 Go to [Contents](#contents)
 
