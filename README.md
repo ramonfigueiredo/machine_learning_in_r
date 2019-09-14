@@ -360,7 +360,7 @@ Go to [Contents](#contents)
 
 ## Association Rule Learning
 
-### Apriori Intuition
+### Apriori
 
 a.  [apriori.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/5_association_rule_learning/1_apriori/apriori.r)
 
