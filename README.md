@@ -21,7 +21,7 @@ Machine Learning in R
 4. [Clustering](#clustering)
 	1. [K-Means Clustering](#k-means-clustering)
 	2. [Hierarchical Clustering](#hierarchical-clustering)
-5. Association Rule Learning
+5. [Association Rule Learning](#association-rule-learning)
 	1. [Apriori Intuition](#apriori)
 	2. [Eclat](#eclat)
 6. [How to run the R program](#how-to-run-the-r-program)
