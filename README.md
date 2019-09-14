@@ -544,16 +544,16 @@ Creating S4 object  ... done [0.00s].
 ```
 
 * Analyzes (different sets of items most frequently purchased together)
-	# [01] The sets of items **most frequently purchased together** are **{mineral water,spaghetti}** with a **support** of point of **0.05972537**
-	# [02] The sets of items **most frequently purchased together** are **{chocolate,mineral water}** with a **support** of point of **0.05265965**
-	# [03] The sets of items **most frequently purchased together** are **{eggs,mineral water}** with a **support** of point of **0.05092654**
-	# [04] The sets of items **most frequently purchased together** are **{milk,mineral water}** with a **support** of point of **0.04799360**
-	# [05] The sets of items **most frequently purchased together** are **{ground beef,mineral water}** with a **support** of point of **0.04092788**
-	# [06] The sets of items **most frequently purchased together** are **{ground beef,spaghetti}** with a **support** of point of **0.03919477**
-	# [07] The sets of items **most frequently purchased together** are **{chocolate,spaghetti}** with a **support** of point of  **0.03919477**
-	# [08] The sets of items **most frequently purchased together** are **{eggs,spaghetti}** with a **support** of point of **0.03652846**
-	# [09] The sets of items **most frequently purchased together** are **{eggs,french fries}** with a **support** of point of **0.03639515**
-	# [10] The sets of items **most frequently purchased together** are **{frozen vegetables,mineral water}** with a **support** of point of **0.03572857**
+	* [01] The sets of items **most frequently purchased together** are **{mineral water,spaghetti}** with a **support** of point of **0.05972537**
+	* [02] The sets of items **most frequently purchased together** are **{chocolate,mineral water}** with a **support** of point of **0.05265965**
+	* [03] The sets of items **most frequently purchased together** are **{eggs,mineral water}** with a **support** of point of **0.05092654**
+	* [04] The sets of items **most frequently purchased together** are **{milk,mineral water}** with a **support** of point of **0.04799360**
+	* [05] The sets of items **most frequently purchased together** are **{ground beef,mineral water}** with a **support** of point of **0.04092788**
+	* [06] The sets of items **most frequently purchased together** are **{ground beef,spaghetti}** with a **support** of point of **0.03919477**
+	* [07] The sets of items **most frequently purchased together** are **{chocolate,spaghetti}** with a **support** of point of  **0.03919477**
+	* [08] The sets of items **most frequently purchased together** are **{eggs,spaghetti}** with a **support** of point of **0.03652846**
+	* [09] The sets of items **most frequently purchased together** are **{eggs,french fries}** with a **support** of point of **0.03639515**
+	* [10] The sets of items **most frequently purchased together** are **{frozen vegetables,mineral water}** with a **support** of point of **0.03572857**
 
 Go to [Contents](#contents)
 
