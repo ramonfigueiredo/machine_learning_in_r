@@ -580,7 +580,7 @@ b.  [upper_confidence_bound.r](https://github.com/ramonfigueiredopessoa/machine_
 
 ![Upper Confidence Bound (UCB) - Histogram of ads selections](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/UCB-Histogram-of-ads-selections.png)
 
-### UCB algorithm
+#### UCB algorithm
 
 **Step 1.** At each round n, we consider two numbers for each ad i:
 
@@ -603,6 +603,36 @@ b.  [upper_confidence_bound.r](https://github.com/ramonfigueiredopessoa/machine_
 Go to [Contents](#contents)
 
 ### Thompson Sampling
+
+a.  [random_selection.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/random_selection.r)
+
+* Importing the dataset ([Ads_CTR_Optimisation.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/Ads_CTR_Optimisation.csv))
+* Implementing Random Selection
+* Visualising the results
+
+![Random selection - Histogram of ads selections](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/Random-selection_Histogram-of-ads-selections.png)
+
+b.  [thompson_sampling.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/thompson_sampling.r)
+
+* Importing the dataset ([Ads_CTR_Optimisation.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/Ads_CTR_Optimisation.csv))
+* Implementing Thompson Sampling
+* Visualising the results
+
+![Thompson Sampling - Histogram of ads selections](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/Thompson_Sampling-Histogram-of-ads-selections.png)
+
+#### Thompson Sampling algorithm
+
+**Step 1.** At each round n, we consider two numbers for each ad i:
+
+* ![equation 1](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/equation1.gif) - the number of times the ad i got reward 1 up to round n,
+
+* ![equation 2](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/equation2.gif) - the number of times the ad i got reward 0 up to round n.
+
+**Step 2.** For each ad i, we take a random draw from the distribution below:
+
+![equation 3](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/equation3.gif)
+
+**Step 3.** We select the ad that has the highest ![equation 4](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/equation4.gif)
 
 Go to [Contents](#contents)
 
