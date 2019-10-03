@@ -24,7 +24,10 @@ Machine Learning in R
 5. [Association Rule Learning](#association-rule-learning)
 	1. [Apriori](#apriori)
 	2. [Eclat](#eclat)
-6. [How to run the R program](#how-to-run-the-r-program)
+6. [Reinforcement Learning](#reinforcement-learning)
+	1. [Upper Confidence Bound](#upper-confidence-bound)
+	2. [Thompson Sampling](#thompson-sampling)
+7. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
 
@@ -554,6 +557,52 @@ Creating S4 object  ... done [0.00s].
 	* [08] The sets of items **most frequently purchased together** are **{eggs,spaghetti}** with a **support** of point of **0.03652846**
 	* [09] The sets of items **most frequently purchased together** are **{eggs,french fries}** with a **support** of point of **0.03639515**
 	* [10] The sets of items **most frequently purchased together** are **{frozen vegetables,mineral water}** with a **support** of point of **0.03572857**
+
+Go to [Contents](#contents)
+
+## Reinforcement Learning
+
+### Upper Confidence Bound
+
+a.  [random_selection.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/random_selection.r)
+
+* Importing the dataset ([Ads_CTR_Optimisation.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/Ads_CTR_Optimisation.csv))
+* Implementing Random Selection
+* Visualising the results
+
+![Random selection - Histogram of ads selections](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/Random-selection_Histogram-of-ads-selections.png)
+
+b.  [upper_confidence_bound.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/upper_confidence_bound.r)
+
+* Importing the dataset ([Ads_CTR_Optimisation.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/Ads_CTR_Optimisation.csv))
+* Implementing UCB
+* Visualising the results
+
+![Upper Confidence Bound (UCB) - Histogram of ads selections](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/UCB-Histogram-of-ads-selections.png)
+
+### UCB algorithm
+
+**Step 1.** At each round n, we consider two numbers for each ad i:
+
+* ![equation 1](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/equation1.gif) - the number of times the ad i was selected up to round n,
+
+* ![equation 2](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/equation2.gif) - the sum of rewards of the ad i up to round n.
+
+**Step 2.** From these two numbers we compute:
+
+* the average reward of ad i up to round n
+
+![equation 3](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/equation3.gif)
+
+* the confidence interval ![equation 4](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/equation4.gif) at round n with
+
+![equation 4](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/equation5.gif)
+		
+**Step 3.** We select the ad i that has the maximum UCB ![equation 6](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/1_upper_confidence_bound/equation6.gif)
+
+Go to [Contents](#contents)
+
+### Thompson Sampling
 
 Go to [Contents](#contents)
 
