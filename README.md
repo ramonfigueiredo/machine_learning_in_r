@@ -642,10 +642,10 @@ Go to [Contents](#contents)
 a.  [natural_language_processing.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/7_natural_language_processing/natural_language_processing.r)
 
 * Importing the dataset ([Restaurant_Reviews.tsv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/7_natural_language_processing/Restaurant_Reviews.tsv))
-* Cleaning the texts
+* Cleaning the texts (text in lower case, removing numbers, removing punctuation, removing stop words, stemming: suffix stripping)
 * Creating the Bag of Words model
 * Splitting the dataset into the Training set and Test set
-* Fitting Naive Bayes to the Training set
+* Fitting Random Forest Classification to the Training set
 * Predicting the Test set results
 * Making the Confusion Matrix
 * Calculating metrics using the confusion matrix
