@@ -27,7 +27,8 @@ Machine Learning in R
 6. [Reinforcement Learning](#reinforcement-learning)
 	1. [Upper Confidence Bound](#upper-confidence-bound)
 	2. [Thompson Sampling](#thompson-sampling)
-7. [How to run the R program](#how-to-run-the-r-program)
+7. [Natural Language Processing](#natural-language-processing)
+8. [How to run the R program](#how-to-run-the-r-program)
 
 ## Data Preprocessing
 
@@ -635,6 +636,128 @@ b.  [thompson_sampling.r](https://github.com/ramonfigueiredopessoa/machine_learn
 **Step 3.** We select the ad that has the highest ![equation 4](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/6_reinforcement_learning/2_thompson_sampling/equation4.gif)
 
 Go to [Contents](#contents)
+
+## Natural Language Processing
+
+a.  [natural_language_processing.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/7_natural_language_processing/natural_language_processing.r)
+
+* Importing the dataset ([Restaurant_Reviews.tsv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/7_natural_language_processing/Restaurant_Reviews.tsv))
+* Cleaning the texts
+* Creating the Bag of Words model
+* Splitting the dataset into the Training set and Test set
+* Fitting Naive Bayes to the Training set
+* Predicting the Test set results
+* Making the Confusion Matrix
+* Calculating metrics using the confusion matrix
+
+### Metrics: 
+
+* **True Positive (TP):** Observation is positive, and is predicted to be positive.
+* **False Negative (FN):** Observation is positive, but is predicted negative.
+* **True Negative (TN):** Observation is negative, and is predicted to be negative.
+* **False Positive (FP):** Observation is negative, but is predicted positive.
+
+#### Classification Rate / Accuracy
+
+Classification Rate or Accuracy is given by the relation:
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+However, there are problems with accuracy.  It assumes equal costs for both kinds of errors. A 99% accuracy can be excellent, good, mediocre, poor or terrible depending upon the problem.
+
+#### Recall
+
+Recall can be defined as the ratio of the total number of correctly classified positive examples divide to the total number of positive examples. High Recall indicates the class is correctly recognized (small number of FN).
+
+Recall is given by the relation:
+
+Recall = TP / (TP + FN)
+
+#### Precision
+
+To get the value of precision we divide the total number of correctly classified positive examples by the total number of predicted positive examples. High Precision indicates an example labeled as positive is indeed positive (small number of FP).
+
+Precision is given by the relation:
+
+Precision = TP / (TP + FP)
+
+High recall, low precision: 
+This means that most of the positive examples are correctly recognized (low FN) but there are a lot of false positives.
+
+Low recall, high precision: 
+This shows that we miss a lot of positive examples (high FN) but those we predict as positive are indeed positive (low FP)
+
+#### F-measure
+
+Since we have two measures (Precision and Recall) it helps to have a measurement that represents both of them. We calculate an F-measure which uses Harmonic Mean in place of Arithmetic Mean as it punishes the extreme values more.
+
+The F-Measure will always be nearer to the smaller value of Precision or Recall.
+
+Fmeasure = (2 * Recall * Precision) / (Recall + Presision)
+
+### Algorithm output
+
+```
+Predicting the Test set results
+4   9  10  16  17  21  24  33  39  40  41 
+  1   1   1   0   0   0   0   0   1   0   0 
+ 48  56  58  59  61  63  73  76  82  92  93 
+  1   1   0   1   0   1   0   0   0   1   0 
+ 98  99 105 112 113 115 116 122 123 142 150 
+  0   1   0   0   1   1   0   0   1   1   0 
+152 154 157 158 159 161 169 182 183 184 188 
+  1   0   1   1   1   0   0   0   0   0   0 
+190 191 193 199 202 203 210 211 217 222 228 
+  1   1   0   1   1   0   0   0   1   0   1 
+239 240 250 251 255 258 262 264 270 272 276 
+  0   1   0   1   1   0   0   1   0   0   0 
+287 292 303 306 314 318 326 328 337 344 345 
+  0   0   0   0   0   0   0   1   0   0   0 
+346 349 351 353 361 363 364 370 375 395 396 
+  1   0   0   0   0   0   1   0   1   1   0 
+397 399 412 413 415 416 430 433 445 446 453 
+  0   1   1   0   0   0   1   1   1   1   1 
+456 466 469 470 473 486 495 496 509 519 521 
+  0   1   1   1   1   1   0   0   0   0   1 
+525 528 531 535 539 545 548 555 560 563 568 
+  1   1   1   0   0   0   0   1   0   1   1 
+570 574 583 586 591 598 606 613 614 618 625 
+  0   1   0   1   1   1   1   0   0   0   1 
+628 633 634 639 641 647 648 653 658 668 674 
+  1   0   1   0   1   0   1   1   1   1   1 
+679 688 694 698 712 715 716 719 730 739 743 
+  1   1   1   0   0   1   1   0   1   1   0 
+752 759 761 768 780 789 795 807 809 811 817 
+  1   1   1   1   1   1   0   0   1   1   0 
+818 821 844 848 849 853 855 863 868 874 882 
+  1   0   0   1   0   1   1   0   0   1   0 
+890 891 892 894 900 905 906 912 915 920 924 
+  1   1   1   0   1   0   1   0   0   1   0 
+931 935 938 939 941 953 956 965 973 977 983 
+  1   0   0   1   0   1   0   0   0   0   0 
+985 996 
+  0   0 
+Levels: 0 1
+
+
+Confusion Matrix
+	y_pred
+     0  1
+  0 82 18
+  1 23 77
+
+
+True Positive (TP): 82
+False Negative (FN): 18
+True Negative (TN): 23
+False Positive (FP): 77
+
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN): 0.525000
+Recall = TP / (TP + FN): 0.820000
+Precision = TP / (TP + FP): 0.515723
+Fmeasure = (2 * recall * precision) / (recall + precision): 0.633205
+```
 
 ## How to run the R program
 
