@@ -28,7 +28,10 @@ Machine Learning in R
 	1. [Upper Confidence Bound](#upper-confidence-bound)
 	2. [Thompson Sampling](#thompson-sampling)
 7. [Natural Language Processing](#natural-language-processing)
-8. [How to run the R program](#how-to-run-the-r-program)
+8. [Deep Learning](#deep-learning)
+	1. [Artificial Neural Networks](#artificial-neural-networks)
+9. [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
+10. [How to run the Python program](#how-to-run-the-python-program)
 
 ## Data Preprocessing
 
@@ -650,50 +653,7 @@ a.  [natural_language_processing.r](https://github.com/ramonfigueiredopessoa/mac
 * Making the Confusion Matrix
 * Calculating metrics using the confusion matrix
 
-### Metrics: 
-
-* **True Positive (TP):** Observation is positive, and is predicted to be positive.
-* **False Negative (FN):** Observation is positive, but is predicted negative.
-* **True Negative (TN):** Observation is negative, and is predicted to be negative.
-* **False Positive (FP):** Observation is negative, but is predicted positive.
-
-#### Classification Rate / Accuracy
-
-Classification Rate or Accuracy is given by the relation:
-
-Accuracy = (TP + TN) / (TP + TN + FP + FN)
-
-However, there are problems with accuracy.  It assumes equal costs for both kinds of errors. A 99% accuracy can be excellent, good, mediocre, poor or terrible depending upon the problem.
-
-#### Recall
-
-Recall can be defined as the ratio of the total number of correctly classified positive examples divide to the total number of positive examples. High Recall indicates the class is correctly recognized (small number of FN).
-
-Recall is given by the relation:
-
-Recall = TP / (TP + FN)
-
-#### Precision
-
-To get the value of precision we divide the total number of correctly classified positive examples by the total number of predicted positive examples. High Precision indicates an example labeled as positive is indeed positive (small number of FP).
-
-Precision is given by the relation:
-
-Precision = TP / (TP + FP)
-
-High recall, low precision: 
-This means that most of the positive examples are correctly recognized (low FN) but there are a lot of false positives.
-
-Low recall, high precision: 
-This shows that we miss a lot of positive examples (high FN) but those we predict as positive are indeed positive (low FP)
-
-#### F-measure
-
-Since we have two measures (Precision and Recall) it helps to have a measurement that represents both of them. We calculate an F-measure which uses Harmonic Mean in place of Arithmetic Mean as it punishes the extreme values more.
-
-The F-Measure will always be nearer to the smaller value of Precision or Recall.
-
-Fmeasure = (2 * Recall * Precision) / (Recall + Presision)
+See [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
 
 ### Algorithm output
 
@@ -758,6 +718,173 @@ Recall = TP / (TP + FN): 0.820000
 Precision = TP / (TP + FP): 0.515723
 Fmeasure = (2 * recall * precision) / (recall + precision): 0.633205
 ```
+
+Go to [Contents](#contents)
+
+## Deep Learning
+
+### Artificial Neural Networks
+
+a.  [ann.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/8_deep_learning/1_artificial_neural_networks/ann.r)
+
+* Importing the dataset ([Churn_Modelling.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/8_deep_learning/1_artificial_neural_networks/Churn_Modelling.csv))
+* Encoding the categorical variables as factors
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Fitting ANN to the Training set using H2O (https://www.h2o.ai/) deep learning framework
+* Predicting the Test set results
+* Creating the Confusion Matrix
+* Calculating metrics using the confusion matrix
+
+#### Training the ANN with Stochastic Gradient Descent
+
+**Step 1.** Randomly initialise the weights to small numbers close to 0 (but not 0).
+
+**Step 2.** Input the first observation of your dataset in the input layer, each feature in one input node.
+
+**Step 3.** Forward-Propagation: from left to right, the neurons are activated in a way that the impact of each neuron's activation is limited by the weights. Propagate the activations until getting the predicted results y.
+
+**Step 4.** Compare the predicted results to the actual result. Measure the generated error.
+
+**Step 5.** Back-Propagation: fron right to left, the error is back-propagated. Update the weights according to how much they are responsible for the error. The learning rate decides by how much we update the weights.
+
+**Step 6.** Repeat Steps 1 to 5 and update the weights after each observation (Reinforcement Learning). Or: Repeat Steps 1 to 5 but update the weights only after a batch of observation (Batch Learning).
+
+**Step 7.** When the whole training set passed through the ANN, that makes an epoch. Redo more epochs.
+
+See [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
+
+### Algorithm output using Keras and TensorFlow (CPU)
+
+```
+Connection successful!
+
+R is connected to the H2O cluster: 
+    H2O cluster uptime:         3 hours 16 minutes 
+    H2O cluster timezone:       America/Toronto 
+    H2O data parsing timezone:  UTC 
+    H2O cluster version:        3.26.0.2 
+    H2O cluster version age:    2 months and 11 days  
+    H2O cluster name:           H2O_started_from_R_ramon_cti312 
+    H2O cluster total nodes:    1 
+    H2O cluster total memory:   3.28 GB 
+    H2O cluster total cores:    8 
+    H2O cluster allowed cores:  8 
+    H2O cluster healthy:        TRUE 
+    H2O Connection ip:          localhost 
+    H2O Connection port:        54321 
+    H2O Connection proxy:       NA 
+    H2O Internal Security:      FALSE 
+    H2O API Extensions:         Amazon S3, XGBoost, Algos, AutoML, Core V3, Core V4 
+    R Version:                  R version 3.6.1 (2019-07-05) 
+
+|==============================================================================| 100%
+|==============================================================================| 100%
+
+Predicting the Test set results
+
+   [1] 0 0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0
+  [42] 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0
+  [83] 1 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0
+ [124] 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+ [165] 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0
+ [206] 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ [247] 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+ [288] 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0
+ [329] 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+ [370] 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+ [411] 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0
+ [452] 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+ [493] 0 0 0 1 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0
+ [534] 0 0 0 1 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1
+ [575] 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+ [616] 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+ [657] 0 0 0 1 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+ [698] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0
+ [739] 0 0 1 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0 0 0 1 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0
+ [780] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0
+ [821] 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+ [862] 1 0 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 1 1 0 0 0 0 1 0 0 0 0
+ [903] 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+ [944] 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0
+ [985] 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1
+ [ reached getOption("max.print") -- omitted 1000 entries ]
+
+Confusion Matrix
+
+	   y_pred
+       0    1
+  0 1525   68
+  1  194  213
+
+True Positive (TP): 1525
+False Negative (FN): 68
+True Negative (TN): 194
+False Positive (FP): 213
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN): 0.859500
+
+Recall = TP / (TP + FN): 0.957313
+
+Precision = TP / (TP + FP): 0.877445
+
+Fmeasure = (2 * recall * precision) / (recall + precision): 0.915641
+```
+
+Go to [Contents](#contents)
+
+## Metrics using the Confusion Matrix 
+
+### Confusion Matrix
+
+![Confusion Matrix 1](https://github.com/ramonfigueiredopessoa/machine_learning_in_python/blob/master/src/confusion_matrix.jpg)
+
+### True Positive (TP), False Negative (FN), True Negative (TN), False Positive (FP)
+
+* **True Positive (TP):** Observation is positive, and is predicted to be positive.
+* **False Negative (FN):** Observation is positive, but is predicted negative.
+* **True Negative (TN):** Observation is negative, and is predicted to be negative.
+* **False Positive (FP):** Observation is negative, but is predicted positive.
+
+### Classification Rate / Accuracy
+
+Classification Rate or Accuracy is given by the relation:
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+However, there are problems with accuracy.  It assumes equal costs for both kinds of errors. A 99% accuracy can be excellent, good, mediocre, poor or terrible depending upon the problem.
+
+### Recall
+
+Recall can be defined as the ratio of the total number of correctly classified positive examples divide to the total number of positive examples. High Recall indicates the class is correctly recognized (small number of FN).
+
+Recall is given by the relation:
+
+Recall = TP / (TP + FN)
+
+### Precision
+
+To get the value of precision we divide the total number of correctly classified positive examples by the total number of predicted positive examples. High Precision indicates an example labeled as positive is indeed positive (small number of FP).
+
+Precision is given by the relation:
+
+Precision = TP / (TP + FP)
+
+High recall, low precision: 
+This means that most of the positive examples are correctly recognized (low FN) but there are a lot of false positives.
+
+Low recall, high precision: 
+This shows that we miss a lot of positive examples (high FN) but those we predict as positive are indeed positive (low FP)
+
+### F-measure
+
+Since we have two measures (Precision and Recall) it helps to have a measurement that represents both of them. We calculate an F-measure which uses Harmonic Mean in place of Arithmetic Mean as it punishes the extreme values more.
+
+The F-Measure will always be nearer to the smaller value of Precision or Recall.
+
+Fmeasure = (2 * Recall * Precision) / (Recall + Presision)
+
+Go to [Contents](#contents)
 
 ## How to run the R program
 
