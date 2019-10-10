@@ -8,7 +8,7 @@ dataset = dataset[3:5]
 dataset$Purchased = factor(dataset$Purchased, levels = c(0, 1))
 
 # Splitting the dataset into the Training set and Test set
-# install.packages('caTools')
+install.packages('caTools')
 library(caTools)
 set.seed(123)
 split = sample.split(dataset$Purchased, SplitRatio = 0.75)
@@ -20,7 +20,7 @@ training_set[-3] = scale(training_set[-3])
 test_set[-3] = scale(test_set[-3])
 
 # Fitting Kernel SVM to the Training set
-# install.packages('e1071')
+install.packages('e1071')
 library(e1071)
 classifier = svm(formula = Purchased ~ .,
                  data = training_set,
@@ -30,11 +30,18 @@ classifier = svm(formula = Purchased ~ .,
 # Predicting the Test set results
 y_pred = predict(classifier, newdata = test_set[-3])
 
-# Making the Confusion Matrix
+print("Predicting the Test set results")
+print(y_pred)
+
+
+# Creating the Confusion Matrix
 cm = table(test_set[, 3], y_pred)
 
+print("Confusion Matrix")
+print(cm)
+
 # Applying k-Fold Cross Validation
-# install.packages('caret')
+install.packages('caret')
 library(caret)
 folds = createFolds(training_set$Purchased, k = 10)
 cv = lapply(folds, function(x) {
@@ -49,7 +56,14 @@ cv = lapply(folds, function(x) {
   accuracy = (cm[1,1] + cm[2,2]) / (cm[1,1] + cm[2,2] + cm[1,2] + cm[2,1])
   return(accuracy)
 })
+
+print("Accuracy in each of the 10 folds")
+print(cv)
+
 accuracy = mean(as.numeric(cv))
+
+print("Average accuracy after 10-Fold Cross Validation")
+print(accuracy)
 
 # Visualising the Training set results
 library(ElemStatLearn)

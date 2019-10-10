@@ -34,8 +34,13 @@ Machine Learning in R
 	1. [Principal Component Analysis](#principal-component-analysis)
 	2. [Linear Discriminant Analysis](#linear-discriminant-analysis)
 	3. [Kernel PCA](#kernel-pca)
-10. [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
-11. [How to run the Python program](#how-to-run-the-python-program)
+10. [Model Selection](#model-selection)
+	1. [K-Fold Cross Validation](#k-fold-cross-validation)
+	2. [Grid Search](#grid-search)
+11. [Boosting](#boosting)
+	1. [XG Boost](#xg-boost)
+12. [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
+13. [How to run the Python program](#how-to-run-the-python-program)
 
 ## Data Preprocessing
 
@@ -876,7 +881,7 @@ Step 5: Transform the original dataset **X** via **W** to obtain a *k*-dimension
 
 PCA: [https://plot.ly/ipython-notebooks/principal-component-analysis/](https://plot.ly/ipython-notebooks/principal-component-analysis/)
 
-### PCA algorithm output
+#### PCA algorithm output
 
 See [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
 
@@ -978,6 +983,8 @@ LDA: [https://plot.ly/ipython-notebooks/principal-component-analysis/](https://s
 
 ![PCA and LDA](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/2_linear_discriminant_analysis/pca_lda.png)
 
+Go to [Contents](#contents)
+
 ### Kernel PCA
 
 Kernel PCA is a feature extraction technique adapted for non-linear problems where the data is not linearly separable.
@@ -1006,6 +1013,123 @@ The Gaussian RBF kernel is the must commonly used in Kernal PCA.
 ![Gaussian RBF kernel](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/3_kernel_pca/gaussian_rbf_kernel.png)
 
 ![Kernel PCA](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/3_kernel_pca/kernel_pca.png)
+
+Go to [Contents](#contents)
+
+## Model Selection
+
+Model selection is the process of choosing between different machine learning approaches - e.g. SVM, logistic regression, etc - or choosing between different hyperparameters or sets of features for the same machine learning approach - e.g. deciding between the polynomial degrees/complexities for linear regression.
+
+Every time we build a machine learning, we have two types of parameters: The first type is the parameters that the model learns (parameters that will change and find the optimal values by running the model) and the second type of parameters are the parameters that we choose ourselves. For example, the kernel parameter in the kernel as we model and these parameters are called the hyperparameters. So there are still places to improve the model because we can still choose optimal values for these parameters. And we can find these parameters using the Grid Search technique.
+
+### K-Fold Cross Validation
+
+So far, to evaluate the machine learning models we train the model in the training set and test its performance on the test set. That's a correct way of evaluating the model performance but is not the best one because we have a variance problem. The variance problem can be explained by the fact that when we get the accuracy on the test set, its performance can change on another test set. Judging our model performance only on one accuracy on one test set is not the most relevant way to evaluate the model.
+
+Therefore, the best approach is to use the K-fold cross validation to fix the variance problem. It will fix this problem by splitting the dataset into 10 folds (most of the time k = 10) and we train our model on the last remaining folds. If the 10 folds we can make 10 different combinations of nine folds to train and 1 fold to test, that's means we can have 10 combinations of training sets and test sets. This will give a better idea of how the model performs because we can have an average of different accuracies up to ten evaluations and also compute the standard deviation to have a look in the variance. 
+
+So eventually our analysis will be much more relevant and besides, we will know in which of the following bias-variance our dataset will be.
+
+![Bias-variance tradeoff](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/bias-variance_tradeoff.png)
+
+a. [k_fold_cross_validation.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/k_fold_cross_validation.r)
+
+* Importing the dataset ([Social_Network_Ads.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/Social_Network_Ads.csv))
+* Encoding the target feature as factor
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Fitting Kernel SVM to the Training set
+* Predicting the Test set results
+* Creating the Confusion Matrix
+* Applying k-Fold Cross Validation (K = 10)
+* Accuracy in each of the 10 folds
+* Average accuracy after 10-Fold Cross Validation
+
+* Visualising the Training set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/10_fold_cross_validation-Visualising-the-Training-set-results.png)
+* Visualising the Test set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/10_fold_cross_validation-Visualising-the-Test-set-results.png)
+
+#### K-Fold Cross Validation steps
+
+Step 1: Shuffle the dataset randomly.
+
+Step 2: Split the dataset into k groups
+
+Step 3: For each unique group:
+* Take the group as a hold out or test data set
+* Take the remaining groups as a training data set
+* Fit a model on the training set and evaluate it on the test set
+* Retain the evaluation score and discard the model
+
+Step 4: Summarize the skill of the model using the sample of model evaluation scores
+
+![K-Fold Cross Validation](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/k-fold_cross_validation.png)
+
+Go to [Contents](#contents)
+
+### Grid Search
+
+The traditional way of performing hyperparameter optimization is to use grid search, or a parameter sweep, which is simply an exhaustive searching through a manually specified subset of the hyperparameter space of a learning algorithm. A grid search algorithm must be guided by some performance metric, typically measured by cross-validation on the training set or evaluation on a held-out validation set.
+
+Since the parameter space of a machine learning algorithm may include real-valued or unbounded value spaces for certain parameters, manually set bounds, and discretization may be necessary before applying a grid search.
+
+For example, a typical soft-margin SVM classifier equipped with an RBF kernel has at least two hyperparameters that need to be tuned for good performance on unseen data: a regularization constant C and a kernel hyperparameter K. Both parameters are continuous, so to perform grid search, one selects a finite set of "reasonable" values for each.
+
+Grid search then trains an SVM with each pair (C, K) in the Cartesian product of these two sets and evaluates their performance on a held-out validation set (or by internal cross-validation on the training set, in which case multiple SVMs are trained per pair). Finally, the grid search algorithm outputs the settings that achieved the highest score in the validation procedure.
+
+Grid search suffers from the curse of dimensionality but is often embarrassingly parallel because the hyperparameter settings it evaluates are typically independent of each other.
+
+Imagine a situation where you don't know if your problem is linear or non-linear. And that is not an obvious question especially when you have a large data set that you cannot figure out if your data is linearly separable or if you would rather choose a linear model like SVM or a non-linear model like Kernel SVM. This question can be answered by the Grid Search technique.
+
+In summary, Grid Search is used to know which parameter to select when you choose a machine learning model and what is the optimal value of these hyperparameters.
+
+a. [grid_search.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/grid_search.r)
+
+* Importing the dataset ([Social_Network_Ads.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/Social_Network_Ads.csv))
+* Encoding the target feature as factor
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Fitting Kernel SVM to the Training set
+* Predicting the Test set results
+* Creating the Confusion Matrix
+* Applying k-Fold Cross Validation (K = 10)
+* Accuracy in each of the 10 folds
+* Average accuracy after 10-Fold Cross Validation
+* Average standard deviation after 10-Fold Cross Validation
+* Grid Search: Summary of classifier
+* Grid Search: Best parameters
+
+* Visualising the Training set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/grid_search-Visualising-the-Training-set-results.png)
+* Visualising the Test set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/grid_search-Visualising-the-Test-set-results.png)
+
+Go to [Contents](#contents)
+
+## Boosting
+
+Boosting is a machine learning ensemble meta-algorithm for primarily reducing bias, and also variance in supervised learning, and a family of machine learning algorithms that convert weak learners to strong ones.
+
+### XG Boost
+
+XGBoost (https://xgboost.readthedocs.io/en/latest/) is an open-source Gradient Boosting (GBM, GBRT, GBDT) library which provides a gradient boosting framework for Python, R, C++, Java, and Julia. It works on Linux, Windows, and macOS.
+
+XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. It implements machine learning algorithms under the Gradient Boosting framework. XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. The same code runs on major distributed environment (Hadoop, SGE, MPI) and can solve problems beyond billions of examples.
+
+a. [xg_boost.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/2_xg_boost/xg_boost.r)
+
+* Importing the dataset ([Churn_Modelling.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/2_xg_boost/Churn_Modelling.csv))
+* Encoding the categorical variables as factors
+* Splitting the dataset into the Training set and Test set
+* Fitting XGBoost to the Training set
+* Predicting the Test set results
+* Creating the Confusion Matrix
+* Applying k-Fold Cross Validation (K = 10)
+* Accuracy in each of the 10 folds
+* Average accuracy after 10-Fold Cross Validation
+
+Go to [Contents](#contents)
 
 ## Metrics using the Confusion Matrix 
 

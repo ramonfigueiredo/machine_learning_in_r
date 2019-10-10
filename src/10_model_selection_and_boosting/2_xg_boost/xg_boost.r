@@ -13,7 +13,7 @@ dataset$Gender = as.numeric(factor(dataset$Gender,
                                    labels = c(1, 2)))
 
 # Splitting the dataset into the Training set and Test set
-# install.packages('caTools')
+install.packages('caTools')
 library(caTools)
 set.seed(123)
 split = sample.split(dataset$Exited, SplitRatio = 0.8)
@@ -21,7 +21,7 @@ training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
 
 # Fitting XGBoost to the Training set
-# install.packages('xgboost')
+install.packages('xgboost')
 library(xgboost)
 classifier = xgboost(data = as.matrix(training_set[-11]), label = training_set$Exited, nrounds = 10)
 
@@ -29,11 +29,17 @@ classifier = xgboost(data = as.matrix(training_set[-11]), label = training_set$E
 y_pred = predict(classifier, newdata = as.matrix(test_set[-11]))
 y_pred = (y_pred >= 0.5)
 
-# Making the Confusion Matrix
+print("Predicting the Test set results")
+print(y_pred)
+
+# Creating the Confusion Matrix
 cm = table(test_set[, 11], y_pred)
 
+print("Confusion Matrix")
+print(cm)
+
 # Applying k-Fold Cross Validation
-# install.packages('caret')
+install.packages('caret')
 library(caret)
 folds = createFolds(training_set$Exited, k = 10)
 cv = lapply(folds, function(x) {
@@ -46,4 +52,10 @@ cv = lapply(folds, function(x) {
   accuracy = (cm[1,1] + cm[2,2]) / (cm[1,1] + cm[2,2] + cm[1,2] + cm[2,1])
   return(accuracy)
 })
+
+print("Accuracy in each of the 10 folds")
+print(cv)
+
 accuracy = mean(as.numeric(cv))
+print("Average accuracy after XG Boost")
+print(accuracy)

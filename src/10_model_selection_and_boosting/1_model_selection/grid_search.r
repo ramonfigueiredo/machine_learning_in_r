@@ -8,7 +8,7 @@ dataset = dataset[3:5]
 dataset$Purchased = factor(dataset$Purchased, levels = c(0, 1))
 
 # Splitting the dataset into the Training set and Test set
-# install.packages('caTools')
+install.packages('caTools')
 library(caTools)
 set.seed(123)
 split = sample.split(dataset$Purchased, SplitRatio = 0.75)
@@ -20,7 +20,7 @@ training_set[-3] = scale(training_set[-3])
 test_set[-3] = scale(test_set[-3])
 
 # Fitting Kernel SVM to the Training set
-# install.packages('e1071')
+install.packages('e1071')
 library(e1071)
 classifier = svm(formula = Purchased ~ .,
                  data = training_set,
@@ -29,12 +29,16 @@ classifier = svm(formula = Purchased ~ .,
 
 # Predicting the Test set results
 y_pred = predict(classifier, newdata = test_set[-3])
+print("Predicting the Test set results")
+print(y_pred)
 
-# Making the Confusion Matrix
+# Creating the Confusion Matrix
 cm = table(test_set[, 3], y_pred)
+print("Confusion Matrix")
+print(cm)
 
 # Applying k-Fold Cross Validation
-# install.packages('caret')
+install.packages('caret')
 library(caret)
 folds = createFolds(training_set$Purchased, k = 10)
 cv = lapply(folds, function(x) {
@@ -49,14 +53,25 @@ cv = lapply(folds, function(x) {
   accuracy = (cm[1,1] + cm[2,2]) / (cm[1,1] + cm[2,2] + cm[1,2] + cm[2,1])
   return(accuracy)
 })
+
+print("Accuracy in each of the 10 folds")
+print(cv)
+
 accuracy = mean(as.numeric(cv))
 
+print("Average accuracy after 10-Fold Cross Validation")
+print(accuracy)
+
 # Applying Grid Search to find the best parameters
-# install.packages('caret')
+install.packages('caret')
 library(caret)
 classifier = train(form = Purchased ~ ., data = training_set, method = 'svmRadial')
-classifier
-classifier$bestTune
+
+print("classifier")
+print(classifier)
+
+print("classifier: bestTune")
+print(classifier$bestTune)
 
 # Visualising the Training set results
 library(ElemStatLearn)
@@ -88,3 +103,4 @@ plot(set[, -3], main = 'Kernel SVM (Test set)',
 contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
 points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+
