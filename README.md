@@ -32,6 +32,8 @@ Machine Learning in R
 	1. [Artificial Neural Networks](#artificial-neural-networks)
 9. [Dimensionality Reduction](#dimensionality-reduction)
 	1. [Principal Component Analysis](#principal-component-analysis)
+	2. [Linear Discriminant Analysis](#linear-discriminant-analysis)
+	3. [Kernel PCA](#kernel-pca)
 10. [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
 11. [How to run the Python program](#how-to-run-the-python-program)
 
@@ -843,6 +845,8 @@ The goal of Principal Component Analysis (PCA) is identify patterns in data and 
 
 PCA can be used to reduce the dimensions of a d-dimensional dataset by projecting it onto a (k)-dimensional subspace (where k < d).
 
+PCA is an unsupervised learning algorithm and a linear transformation technique.
+
 a. [pca.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/pca.r)
 
 * Importing the dataset ([Wine.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/Wine.csv))
@@ -870,7 +874,7 @@ Step 4: Construct the projection matrix **W** from the selected *k* eigenvalues.
 
 Step 5: Transform the original dataset **X** via **W** to obtain a *k*-dimensional feature subspace **Y**.
 
-[https://plot.ly/ipython-notebooks/principal-component-analysis/](https://plot.ly/ipython-notebooks/principal-component-analysis/)
+PCA: [https://plot.ly/ipython-notebooks/principal-component-analysis/](https://plot.ly/ipython-notebooks/principal-component-analysis/)
 
 ### PCA algorithm output
 
@@ -930,6 +934,51 @@ F1-Score (class 3) = (2 * recall_class3 * precision_class3) / (recall_class3 + p
 ```
 
 Go to [Contents](#contents)
+
+### Linear Discriminant Analysis
+
+Linear Discriminant Analysis (LDA) is used as a dimensionality reduction technique and in the pre-processing step for pattern classification.
+
+LDA has the goal to project a dataset onto a lower-dimensional space.
+
+LDA differs from PCA because in addition to finding the component axises with LDA we are interested in the axes that maximize the separation between multiple classes.
+
+In summary, LDA is to project a feature space (a dataset n-dimensional samples) onto a small subspace k (where K <= n - 1) while maintaining the class-discriminatory information. LDA is a supervised learning algorithm.
+
+Both PCA and LDA are linear transformation techniques used for dimensional reduction. PCA is described as unsupervised but LDA is supervised because of the relation to the dependent variable.
+
+a. [lda.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/2_linear_discriminant_analysis/lda.r)
+
+* Importing the dataset ([Wine.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/2_linear_discriminant_analysis/Wine.csv))
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Applying Linear Discriminant Analysis (LDA)
+* Fitting SVM to the Training set
+* Predicting the Test set results
+* Creating the Confusion Matrix
+
+* Visualising the Training set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/2_linear_discriminant_analysis/Visualising-the-Training-set-results.png)
+* Visualising the Test set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/2_linear_discriminant_analysis/Visualising-the-Test-set-results.png)
+
+#### LDA algorithm
+
+Step 1: Compute the *d*-dimensional mean vectors for the different classes from the dataset.
+
+Step 2: Compute the scatter matrices (in-between-class and within-class scatter matrix).
+
+Step 3: Compute the eigenvectors (**e1**,**e2**,...) and corresponding eigenvalues (*λ1*,*λ2*,...) for the scatter matrices.
+
+Step 4: Sort the eigenvectors by decreasing eigenvalues and choose *k* eigenvectors with the largest eigenvalues to form a *d x k* dimensional matrix **W** (where every column represents an eigenvector).
+
+Step 5: Use this *d x k* eigenvector matrix to transform the samples onto the new subspace. This can be summarized by the matrix multiplication: **Y = X x W** (where *X* is a *n x d*-dimensional matrix representing the *n* samples, and **y** are the transformed *n x k*-dimensional samples in the new subspace).
+
+LDA: [https://plot.ly/ipython-notebooks/principal-component-analysis/](https://sebastianraschka.com/Articles/2014_python_lda.html)
+
+![PCA and LDA](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/2_linear_discriminant_analysis/pca_lda.png)
+
+### Kernel PCA
 
 ## Metrics using the Confusion Matrix 
 
