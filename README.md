@@ -30,8 +30,10 @@ Machine Learning in R
 7. [Natural Language Processing](#natural-language-processing)
 8. [Deep Learning](#deep-learning)
 	1. [Artificial Neural Networks](#artificial-neural-networks)
-9. [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
-10. [How to run the Python program](#how-to-run-the-python-program)
+9. [Dimensionality Reduction](#dimensionality-reduction)
+	1. [Principal Component Analysis](#principal-component-analysis)
+10. [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
+11. [How to run the Python program](#how-to-run-the-python-program)
 
 ## Data Preprocessing
 
@@ -833,11 +835,109 @@ Fmeasure = (2 * recall * precision) / (recall + precision): 0.915641
 
 Go to [Contents](#contents)
 
+## Dimensionality Reduction
+
+### Principal Component Analysis
+
+The goal of Principal Component Analysis (PCA) is identify patterns in data and detect the correlation between variables.
+
+PCA can be used to reduce the dimensions of a d-dimensional dataset by projecting it onto a (k)-dimensional subspace (where k < d).
+
+a. [pca.py](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/pca.r)
+
+* Importing the dataset ([Wine.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/Wine.csv))
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Applying Principal Component Analysis (PCA)
+* Fitting SVM to the Training set
+* Predicting the Test set results
+* Creating the Confusion Matrix
+* Visualising the Training and Test set results
+* Calculating metrics using the confusion matrix
+
+* Visualising the Training set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/Visualising-the-Training-set-results.png)
+* Visualising the Test set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/Visualising-the-Test-set-results.png)
+
+#### PCA algorithm
+
+Step 1: Standardize the data.
+
+Step 2: Obtain the Eigenvectors and Eigenvalues from the covariance matrix or correlation matrix, or perform Singular Vector Decomposition.
+
+Step 3: Sort eigenvalues in descending order and choose the *k* eigenvectors that correspond to the k largest eigenvalues where k is the number of dimensions of the new feature subspace (*k <= d*).
+
+Step 4: Construct the projection matrix **W** from the selected *k* eigenvalues.
+
+Step 5: Transform the original dataset **X** via **W** to obtain a *k*-dimensional feature subspace **Y**.
+
+[https://plot.ly/ipython-notebooks/principal-component-analysis/](https://plot.ly/ipython-notebooks/principal-component-analysis/)
+
+### PCA algorithm output
+
+See [Metrics using the Confusion Matrix](#metrics-using-the-confusion-matrix)
+
+```
+Predicting the Test set results
+  4   5   8  11  16  20  21  24  31  32  50  59  65  67  68  69  87  88  89 104 106 107 111 114 118 126 132 134 137 138 139 145 151 167 173 
+  1   1   1   1   1   1   1   1   1   1   1   1   2   2   2   2   2   2   2   2   2   2   2   2   2   2   3   3   3   3   3   3   3   3   3 
+174 
+  3 
+Levels: 1 2 3
+
+Confusion Matrix
+  	 y_pred
+     1  2  3
+  1 12  0  0
+  2  0 14  0
+  3  0  0 10
+
+True Positive (TP) of class 1: 12
+True Positive (TP) of class 2: 14
+True Positive (TP) of class 3: 10
+
+
+ACCURACY, PRECISION, RECALL, F1-SCORE FOR CLASS 1
+
+Accuracy (class 1) = TP (class 1) + cm[2,2] + cm[2,3] + cm[3,2] + cm[3,3] / sum_matrix_values: 1.000000
+
+Precision (class 1) = TP (class 1) / (cm[1,1] + cm[2,1] + cm[3,1]): 1.000000
+
+Recall (class 1) = TP (class 1) / (cm[1,1] + cm[1,2] + cm[1,3]): 1.000000
+
+F1-Score (class 1) = (2 * recall_class1 * precision_class1) / (recall_class1 + precision_class1): 1.000000
+
+
+ACCURACY, PRECISION, RECALL, F1-SCORE FOR CLASS 2
+
+Accuracy (class 2) = TP (class 2) + cm[1,1] + cm[1,3] + cm[3,1] + cm[3,3] / sum_matrix_values: 1.000000
+
+Precision (class 2) = TP (class 2) / (cm[1,2] + cm[2,2] + cm[3,2]): 1.000000
+
+Recall (class 2) = TP (class 2) / (cm[2,1] + cm[2,2] + cm[2,3]): 1.000000
+
+F1-Score (class 2) = (2 * recall_class2 * precision_class2) / (recall_class2 + precision_class2): 1.000000
+
+
+ACCURACY, PRECISION, RECALL, F1-SCORE FOR CLASS 3
+
+Accuracy (class 3) = TP (class 3) + cm[1,1] + cm[1,2] + cm[2,1] + cm[2,2] / sum_matrix_values: 1.000000
+
+Precision (class 3) = TP (class 3) / (cm[1,3] + cm[2,3] + cm[3,3]): 1.000000
+
+Recall (class 3) = TP (class 3) / (cm[3,1] + cm[3,2] + cm[3,3]): 1.000000
+
+F1-Score (class 3) = (2 * recall_class3 * precision_class3) / (recall_class3 + precision_class3): 1.000000
+```
+
+Go to [Contents](#contents)
+
 ## Metrics using the Confusion Matrix 
 
-### Confusion Matrix
+### Confusion Matrix (Binary Classification)
 
-![Confusion Matrix 1](https://github.com/ramonfigueiredopessoa/machine_learning_in_python/blob/master/src/confusion_matrix.jpg)
+![Confusion Matrix: Binary Classification](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/confusion_matrix-binary_classification.png)
 
 ### True Positive (TP), False Negative (FN), True Negative (TN), False Positive (FP)
 
@@ -876,13 +976,86 @@ This means that most of the positive examples are correctly recognized (low FN) 
 Low recall, high precision: 
 This shows that we miss a lot of positive examples (high FN) but those we predict as positive are indeed positive (low FP)
 
-### F-measure
+### F1-Score
 
-Since we have two measures (Precision and Recall) it helps to have a measurement that represents both of them. We calculate an F-measure which uses Harmonic Mean in place of Arithmetic Mean as it punishes the extreme values more.
+Since we have two measures (Precision and Recall) it helps to have a measurement that represents both of them. We calculate an F1-Score (F-measure) which uses Harmonic Mean in place of Arithmetic Mean as it punishes the extreme values more.
 
-The F-Measure will always be nearer to the smaller value of Precision or Recall.
+The F1-Score will always be nearer to the smaller value of Precision or Recall.
 
-Fmeasure = (2 * Recall * Precision) / (Recall + Presision)
+F1-Score = (2 * Recall * Precision) / (Recall + Presision)
+
+### Confusion Matrix (Multi-Class Classification)
+
+![Confusion Matrix: Multi-Class Classification - TP, TN, FP, FN](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/confusion_matrix-multi-class_classification-TP_TN_FP_FN.jpg)
+
+### True Positive (TP), False Negative (FN), True Negative (TN), False Positive (FP)
+
+* **True Positive (TP):** Observation is positive, and is predicted to be positive.
+* **False Negative (FN):** Observation is positive, but is predicted negative.
+* **True Negative (TN):** Observation is negative, and is predicted to be negative.
+* **False Positive (FP):** Observation is negative, but is predicted positive.
+
+### Classification Rate / Accuracy
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+### Recall
+
+Recall = TP / (TP + FN)
+
+### Precision
+
+Precision = TP / (TP + FP)
+
+### F1-Score
+
+F1-Score = (2 * Recall * Precision) / (Recall + Presision)
+
+### Example of metrics calculation using a multi-class confusion matrix
+
+![Confusion Matrix: Multi-Class Classification](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/confusion_matrix-multi-class_classification.png)
+
+* True Positive (TP) of class 1: 14
+* True Positive (TP) of class 2: 15
+* True Positive (TP) of class 3: 6
+
+### ACCURACY, PRECISION, RECALL, F1-SCORE FOR CLASS 1
+
+**Accuracy (class 1)** = TP (class 1) + cm[1][1] + cm[1][2] + cm[2][1] + cm[2][2] / sum_matrix_values
+
+= 14 + (15 + 0 + 0 + 6) / (14 + 0 + 0 + 1 + 15 + 0 + 0 + 0 + 6) = 35/36 = 0.9722222222 (97.22 %)
+
+**Precision (class 1)** = TP (class 1) / (cm[0][0] + cm[1][0] + cm[2][0])
+
+= 14 / (14 + 1 + 0) = 14/15 = 0.9333333333 (93.33 %)
+
+**Recall (class 1)** = TP (class 1) / (cm[0][0] + cm[0][1] + cm[0][2])
+
+= 14 / (14 + 0 + 0) = 14/14 = 1.0 (100 %)
+
+**F1-Score (class 1)** = (2 * recall_class1 * precision_class1) / (recall_class1 + precision_class1)
+
+= (2 * 1.0 * 0.9333333333) / (1.0 + 0.9333333333) = 1.8666666666/1.9333333333 = 0.9655172414 (96.55 %)
+
+### ACCURACY, PRECISION, RECALL, F1-SCORE FOR CLASS 2
+
+**Accuracy (class 2)** = TP (class 2) + cm[0][0] + cm[0][2] + cm[2][0] + cm[2][2] / sum_matrix_values: 97.22 %
+
+**Precision (class 2)** = TP (class 2) / (cm[0][1] + cm[1][1] + cm[2][1]): 100.00 %
+
+**Recall (class 2)** = TP (class 2) / (cm[1][0] + cm[1][1] + cm[1][2]): 93.75 %
+
+**F1-Score (class 2)** = (2 * recall_class2 * precision_class2) / (recall_class2 + precision_class2): 96.77 %
+
+### PRECISION, RECALL, F1-SCORE FOR CLASS 3
+
+**Accuracy (class 3)** = TP (class 3) + cm[0][0] + cm[0][1] + cm[1][0] + cm[1][1] / sum_matrix_values: 100.00 %
+
+**Precision (class 3)** = TP (class 3) / (cm[0][2] + cm[1][2] + cm[2][2]): 100.00 %
+
+**Recall (class 3)** = TP (class 3) / (cm[2][0] + cm[2][1] + cm[2][2]): 100.00 %
+
+**F1-Score (class 3)** = (2 * recall_class3 * precision_class3) / (recall_class3 + precision_class3): 100.00 %
 
 Go to [Contents](#contents)
 
