@@ -67,10 +67,10 @@ install.packages('caret')
 library(caret)
 classifier = train(form = Purchased ~ ., data = training_set, method = 'svmRadial')
 
-print("classifier")
+print("Summary: Classifier")
 print(classifier)
 
-print("classifier: bestTune")
+print("Classifier: Best tune (parameters)")
 print(classifier$bestTune)
 
 # Visualising the Training set results

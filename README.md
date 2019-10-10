@@ -1066,6 +1066,65 @@ Step 4: Summarize the skill of the model using the sample of model evaluation sc
 
 ![K-Fold Cross Validation](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/k-fold_cross_validation.png)
 
+#### Algorithm output
+
+```
+Predicting the Test set results
+
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84  85  86  87  89 103 104 107 108 109 117 124 
+  0   0   0   0   0   1   1   1   0   0   1   0   0   0   0   0   0   0   0   0   1   0   0   0   0   1   0   0   0   1   0   0   0   0   0 
+126 127 131 134 139 148 154 156 159 162 163 170 175 176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 
+  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   1   0   1   1   1   1 
+281 286 292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 389 392 395 400 
+  1   1   1   0   1   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1   1   1   0   1 
+Levels: 0 1
+
+
+Confusion Matrix
+
+   	 y_pred
+     0  1
+  0 58  6
+  1  4 32
+
+
+Accuracy in each of the 10 folds
+
+$Fold01
+[1] 0.9354839
+
+$Fold02
+[1] 0.7666667
+
+$Fold03
+[1] 0.9032258
+
+$Fold04
+[1] 0.9
+
+$Fold05
+[1] 0.9310345
+
+$Fold06
+[1] 0.9666667
+
+$Fold07
+[1] 1
+
+$Fold08
+[1] 0.8965517
+
+$Fold09
+[1] 0.8965517
+
+$Fold10
+[1] 0.9666667
+
+
+Average accuracy after 10-Fold Cross Validation
+0.9162848
+```
+
 Go to [Contents](#contents)
 
 ### Grid Search
@@ -1105,6 +1164,95 @@ a. [grid_search.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_
 * Visualising the Test set results
 ![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/10_model_selection_and_boosting/1_model_selection/grid_search-Visualising-the-Test-set-results.png)
 
+#### Algorithm output
+
+```
+Predicting the Test set results
+
+  2   4   5   9  12  18  19  20  22  29  32  34  35  38  45  46  48  52  66  69  74  75  82  84  85  86  87  89 103 104 107 108 109 117 124 
+  0   0   0   0   0   1   1   1   0   0   1   0   0   0   0   0   0   0   0   0   1   0   0   0   0   1   0   0   0   1   0   0   0   0   0 
+126 127 131 134 139 148 154 156 159 162 163 170 175 176 193 199 200 208 213 224 226 228 229 230 234 236 237 239 241 255 264 265 266 273 274 
+  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   1   0   1   0   0   1   1   0   1   1   1   0   1   1   1   1 
+281 286 292 299 302 305 307 310 316 324 326 332 339 341 343 347 353 363 364 367 368 369 372 373 380 383 389 392 395 400 
+  1   1   1   0   1   0   1   0   0   1   0   1   0   1   0   1   1   0   0   1   1   0   1   0   1   1   1   1   0   1 
+Levels: 0 1
+
+
+Confusion Matrix
+
+   	 y_pred
+     0  1
+  0 58  6
+  1  4 32
+
+
+Accuracy in each of the 10 folds
+
+$Fold01
+[1] 0.9354839
+
+$Fold02
+[1] 0.7666667
+
+$Fold03
+[1] 0.9032258
+
+$Fold04
+[1] 0.9
+
+$Fold05
+[1] 0.9310345
+
+$Fold06
+[1] 0.9666667
+
+$Fold07
+[1] 1
+
+$Fold08
+[1] 0.8965517
+
+$Fold09
+[1] 0.8965517
+
+$Fold10
+[1] 0.9666667
+
+
+Average accuracy after 10-Fold Cross Validation
+
+0.9162848
+
+
+Summary: Classifier
+
+Support Vector Machines with Radial Basis Function Kernel 
+
+300 samples
+  2 predictor
+  2 classes: '0', '1' 
+
+No pre-processing
+Resampling: Bootstrapped (25 reps) 
+Summary of sample sizes: 300, 300, 300, 300, 300, 300, ... 
+Resampling results across tuning parameters:
+
+  C     Accuracy   Kappa    
+  0.25  0.9145693  0.8130036
+  0.50  0.9159184  0.8157252
+  1.00  0.9186723  0.8215380
+
+Tuning parameter 'sigma' was held constant at a value of 1.327355
+Accuracy was used to select the optimal model using the largest value.
+The final values used for the model were sigma = 1.327355 and C = 1.
+
+
+Classifier: Best tune (parameters)
+
+    sigma C
+3 1.327355 1
+```
+
 Go to [Contents](#contents)
 
 ## Boosting
@@ -1128,6 +1276,100 @@ a. [xg_boost.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/b
 * Applying k-Fold Cross Validation (K = 10)
 * Accuracy in each of the 10 folds
 * Average accuracy after 10-Fold Cross Validation
+
+#### Algorithm output
+
+```
+Predicting the Test set results
+
+   [1] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE
+  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+  [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+ ...
+ [947] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+ [969] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [991] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+ [ reached getOption("max.print") -- omitted 1000 entries ]
+
+
+Confusion Matrix
+
+   	y_pred
+    FALSE TRUE
+  0  1541   52
+  1   211  196
+
+
+Applying k-Fold Cross Validation
+
+[1]		train-rmse:0.417429 
+... 
+[10]	train-rmse:0.295776 
+[1]		train-rmse:0.417344 
+...
+[10]	train-rmse:0.293275 
+[1]		train-rmse:0.418196 
+...
+[10]	train-rmse:0.296295 
+[1]		train-rmse:0.417027 
+...
+[10]	train-rmse:0.296865 
+[1]		train-rmse:0.417158 
+...
+[10]	train-rmse:0.295697 
+[1]		train-rmse:0.417935 
+...
+[10]	train-rmse:0.295570 
+[1]		train-rmse:0.417586 
+...
+[10]	train-rmse:0.296385 
+[1]		train-rmse:0.417181 
+...
+[10]	train-rmse:0.293820 
+[1]		train-rmse:0.417794 
+...
+[10]	train-rmse:0.297237 
+[1]		train-rmse:0.416809 
+...
+[10]	train-rmse:0.293311
+
+
+Accuracy in each of the 10 folds
+
+$Fold01
+[1] 0.86
+
+$Fold02
+[1] 0.85125
+
+$Fold03
+[1] 0.8625
+
+$Fold04
+[1] 0.85
+
+$Fold05
+[1] 0.8575
+
+$Fold06
+[1] 0.86
+
+$Fold07
+[1] 0.8625
+
+$Fold08
+[1] 0.855
+
+$Fold09
+[1] 0.86375
+
+$Fold10
+[1] 0.84375
+
+
+Average accuracy after XG Boost
+0.856625
+```
 
 Go to [Contents](#contents)
 

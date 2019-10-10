@@ -39,6 +39,9 @@ print("Confusion Matrix")
 print(cm)
 
 # Applying k-Fold Cross Validation
+
+print("Applying k-Fold Cross Validation")
+
 install.packages('caret')
 library(caret)
 folds = createFolds(training_set$Exited, k = 10)
