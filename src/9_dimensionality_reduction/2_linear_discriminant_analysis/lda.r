@@ -37,7 +37,7 @@ y_pred = predict(classifier, newdata = test_set[-3])
 print("Predicting the Test set results")
 print(y_pred)
 
-# Making the Confusion Matrix
+# Creating the Confusion Matrix
 cm = table(test_set[, 3], y_pred)
 
 print("Confusion Matrix")

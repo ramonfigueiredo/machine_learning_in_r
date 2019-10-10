@@ -980,6 +980,33 @@ LDA: [https://plot.ly/ipython-notebooks/principal-component-analysis/](https://s
 
 ### Kernel PCA
 
+Kernel PCA is a feature extraction technique adapted for non-linear problems where the data is not linearly separable.
+
+Kernel PCA is a kernelizable version of PCA where we match the data to a higher dimension using the kernel trick, and then from there we extract sme new principal components. 
+
+a. [kernel_pca.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/3_kernel_pca/kernel_pca.r)
+
+* Importing the dataset ([Social_Network_Ads.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/3_kernel_pca/Social_Network_Ads.csv))
+* Splitting the dataset into the Training set and Test set
+* Feature Scaling
+* Applying Kernel PCA
+* Fitting Logistic Regression to the Training set
+* Predicting the Test set results
+* Creating the Confusion Matrix
+
+* Visualising the Training set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/3_kernel_pca/Visualising-the-Training-set-results.png)
+* Visualising the Test set results
+![Visualising the Training set results](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/3_kernel_pca/Visualising-the-Test-set-results.png)
+
+#### Kernel PCA algorithm
+
+The Gaussian RBF kernel is the must commonly used in Kernal PCA.
+
+![Gaussian RBF kernel](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/3_kernel_pca/gaussian_rbf_kernel.png)
+
+![Kernel PCA](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/3_kernel_pca/kernel_pca.png)
+
 ## Metrics using the Confusion Matrix 
 
 ### Confusion Matrix (Binary Classification)
