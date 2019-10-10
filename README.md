@@ -843,7 +843,7 @@ The goal of Principal Component Analysis (PCA) is identify patterns in data and 
 
 PCA can be used to reduce the dimensions of a d-dimensional dataset by projecting it onto a (k)-dimensional subspace (where k < d).
 
-a. [pca.py](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/pca.r)
+a. [pca.r](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/pca.r)
 
 * Importing the dataset ([Wine.csv](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/master/src/9_dimensionality_reduction/1_principal_component_analysis/Wine.csv))
 * Splitting the dataset into the Training set and Test set
@@ -851,8 +851,6 @@ a. [pca.py](https://github.com/ramonfigueiredopessoa/machine_learning_in_r/blob/
 * Applying Principal Component Analysis (PCA)
 * Fitting SVM to the Training set
 * Predicting the Test set results
-* Creating the Confusion Matrix
-* Visualising the Training and Test set results
 * Calculating metrics using the confusion matrix
 
 * Visualising the Training set results
